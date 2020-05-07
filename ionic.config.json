@@ -1,0 +1,7 @@
+{
+  "name": "ietm-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
