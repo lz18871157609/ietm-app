@@ -1,0 +1,35 @@
+<ion-app>
+  <ion-content fullscreen style="overflow-y: auto !important;">
+    <ion-list>
+      <ion-item class="role-col"> 
+        <ion-card class="role-item">
+          <ion-card-content>
+            <p>c,mabdkjbaskldai</p>
+            <p>Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.</p>
+            <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+              <ion-fab-button color="light">
+                <ion-icon md="caret-back" ios="chevron-back-circle-outline"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-list side="start">
+                <ion-fab-button color="light">
+                  <ion-icon name="key-outline"></ion-icon> 
+                </ion-fab-button>
+                <ion-fab-button color="light">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </ion-fab-button>
+                <ion-fab-button color="light">
+                  <ion-icon name="pencil-outline"></ion-icon>
+                </ion-fab-button>
+              </ion-fab-list>
+            </ion-fab>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-fab horizontal="end" vertical="center" slot="fixed" (click)="addManual()">
+    <ion-fab-button color="danger">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  </ion-app>

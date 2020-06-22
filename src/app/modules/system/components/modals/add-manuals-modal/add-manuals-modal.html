@@ -1,0 +1,49 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>手册安装</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()"><ion-icon name="close"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <form onsubmit="processForm(event)">
+  <ion-list>
+    <ion-item>
+      <ion-label>是否有父系统</ion-label>
+      <ion-toggle slot="end" checked="fatherCheck" (ionChange)="checkSystem()" name="blueberry" ></ion-toggle>
+    </ion-item>
+    <ion-item *ngIf="!fatherCheck">
+      <ion-label>请选择父系统</ion-label>
+      <ion-select value="notifications" interface="action-sheet">
+        <ion-select-option value="enable">Enable</ion-select-option>
+        <ion-select-option value="mute">Mute</ion-select-option>
+        <ion-select-option value="mute_week">Mute for a week</ion-select-option>
+        <ion-select-option value="mute_year">Mute for a year</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>手册名称 <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required type="text" (ionInput)="handleFirstNameValue($event)"></ion-input>
+    </ion-item>
+
+    <ion-item>
+<!--       <ion-input id="upload" style="display: block;" required #inputfile (click)="chooseFile($event)"></ion-input> -->
+      <ion-button  id="upload" color="light" (click)="chooseFile($event)">
+        <ion-icon name="cloud-upload" ></ion-icon>上传文件
+      </ion-button>
+      <ion-chip style="width: 100%; padding: 0;">
+        {{fileName}}
+       <!--  <ion-label color="secondary">{{fileName}}</ion-label> -->
+        <ion-progress-bar style="height: 100%;" *ngIf="showProgress" [value]="FileZipProgress">
+         
+        </ion-progress-bar>
+      </ion-chip>
+    </ion-item>
+  </ion-list>
+  <div class="ion-padding">
+    <ion-button expand="block" type="submit" class="ion-no-margin">保存</ion-button>
+  </div>
+</form>
+</ion-content>

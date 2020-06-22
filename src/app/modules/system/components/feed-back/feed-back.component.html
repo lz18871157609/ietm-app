@@ -1,0 +1,36 @@
+<ion-app>
+  <ion-content fullscreen>
+    <form onsubmit="processForm(event)">
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+        <ion-item>
+          <ion-label position="stacked">意见主题名称<ion-text color="danger">*</ion-text></ion-label>
+          <ion-input required type="text" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">反馈描述</ion-label>
+          <ion-textarea></ion-textarea>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">附加文件</ion-label>
+          <ion-button expand="block" type="button" (click)="chioseFile()" class="ion-no-margin">选择文件</ion-button>
+        </ion-item>
+        <ion-item data-tap-disabled="true">
+          <ion-label>多选</ion-label>
+          <ion-select class="custom-options" multiple="true">
+            <ion-select-option value="brown">Brown</ion-select-option>
+            <ion-select-option value="blonde">Blonde</ion-select-option>
+            <ion-select-option value="black">Black</ion-select-option>
+            <ion-select-option value="red">Red</ion-select-option>
+        
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <div class="ion-padding">
+        <ion-button expand="block" type="submit" class="ion-no-margin">提交</ion-button>
+      </div>
+    </form>
+  </ion-content>
+</ion-app>

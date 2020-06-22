@@ -1,0 +1,99 @@
+/* .menu-style {
+}
+
+.split-pane-md.split-pane-visible>.split-pane-side {
+  max-width: 10%;
+  min-width: 0%;  
+  transition: .3s;
+}
+.split-pane-md.split-pane-visible>.menu-style {
+    max-width: 0%;
+    min-width: 0%;
+    transition: .3s;  
+  }
+.split-pane-md.split-pane-visible>.split-pane-side
+  .menu-item .item-detail-icon {
+      display: none;
+  }
+  .split-pane-ios.split-pane-visible>.split-pane-side {
+    max-width: 10%;
+    min-width: 0%;  
+    transition: .3s;
+  }
+  .split-pane-ios.split-pane-visible>.menu-style {
+      max-width: 0%;
+      min-width: 0%;
+      transition: .3s;  
+    }
+  .split-pane-ios.split-pane-visible>.split-pane-side
+    .menu-item .item-detail-icon {
+        display: none;
+    }
+.menu-bg {
+    --background: #001529;
+}
+
+.menu-list {
+    --background: #001529;
+    padding-top: 0;
+}
+
+.menu-item {
+    --background: #001529;
+    color: #fff;
+}
+.menu-label {
+    text-align: center;
+    padding: 1vw 0;
+}
+
+.menu-label>h2 {
+    color: #fff;
+    font-size: 1.467vw;
+}
+.menu-icon {
+    font-size: 3.467vw;
+}
+#main-content {
+    margin-top: 50px;
+}
+.main-header {
+    z-index: 0;
+}
+ */
+
+ :host(.app-menu) .menu-inner  {
+     --width: 12vw;
+ }
+ ion-menu {
+    --width: 12vw;
+ }
+
+ .menu-header {
+    --background: #001529;
+    color: #fff;
+ }
+ .menu-item {
+    --background: #001529;
+    color: #fff;
+    border-bottom: 1px solid #1e2023;
+}
+
+.menu-item .item-native {
+    --background: #001529;
+    color: #fff;
+}
+.menu-label {
+    text-align: center;
+}
+
+.menu-list {
+    padding: 0;
+}
+
+.app-menu-content{
+    --background: #001529;
+}
+
+
+ 

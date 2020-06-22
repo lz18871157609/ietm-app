@@ -1,0 +1,91 @@
+<ion-app>
+<ion-header>
+  <div class="home-header">
+    <ion-item lines="none">
+      <ion-grid fixed>
+        <ion-row>
+          <ion-col size="8" style="display: flex;align-items: center;">
+            <ion-avatar style="width: 5vw; height: 5vw;">
+              <img src="../../../assets/shapes.svg" />
+            </ion-avatar>
+            <ion-label style="padding: 1vw;">
+              <h3 style="font-size: 1.46vw;">管理员001</h3>
+              <p style="font-size: 1vw; margin-top: 1vw;"><span>级别: 超级管理员</span>&nbsp;&nbsp;&nbsp;<span>上次登陆时间:
+                  2019-11-05</span></p>
+            </ion-label>
+          </ion-col>
+          <ion-col size="2">
+            <ion-label [routerLink]="['/main/system/system-manage/user-manage']" class="home-header-setting-label">
+              <ion-icon class="setting-icon setting-icon1" slot="center" name="person-add"></ion-icon>
+            <p>用户管理</p>
+            </ion-label>
+          </ion-col>
+          <ion-col size="2">
+              <ion-label class="home-header-setting-label">
+                <ion-icon class="setting-icon setting-icon2" slot="center" name="settings"></ion-icon>
+            <p>角色管理</p>
+            </ion-label>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="home-menu">
+    <ion-grid >
+      <ion-row>
+        <ng-container *ngFor="let item of quickMenuList">
+        <ion-col size="3" class="home-menu-col">
+          <ion-chip color="primary" class="home-menu-chip" mode="md" >
+            <ion-label class="home-menu-chip-label">
+                <ion-icon class="home-menu-chip-label-icon" name="item.icon"></ion-icon>
+              <span>{{item.menuName}}</span>
+            </ion-label>
+            <ion-icon class="home-menu-chip-label-close" name="close-circle" (click)="closeQuickMenu(item)"></ion-icon>
+          </ion-chip>
+        </ion-col>
+      </ng-container>
+      <ion-col size="3" class="home-menu-col">
+        <ion-chip class="home-menu-chip" mode="md"  (click)="addQuickMenu()">
+          <ion-label class="home-menu-chip-label">
+              <ion-icon class="home-menu-chip-label-icon" name="add"></ion-icon>
+            <span>自定义</span>
+          </ion-label>
+        </ion-chip>
+      </ion-col>
+      </ion-row>
+    </ion-grid>
+    </div>
+
+
+<div class="home-info">
+  <div class="info home-history">
+    <ion-list class="history-list">
+      <ion-item>
+          <ion-label class="info-header-title">历史记录</ion-label>
+        </ion-item>
+        <ion-content style="height:24vw">
+      <ion-item class="history-item" *ngFor="let item of historyInfo" lines="none">
+        <ion-avatar style="width: 4vw; height: 4vw;">
+          <img src="../../../assets/shapes.svg" />
+        </ion-avatar>
+        <ion-label class="history-label">
+          <h2>{{item.manualName}}</h2>
+          <p><span>{{item.title}}</span> <span style="float: right;">{{item.lastModificationTime}}</span></p>
+        </ion-label>
+      </ion-item>
+    </ion-content>
+    </ion-list>
+  </div>
+  <div class="info home-product">
+      <ion-list>
+          <ion-item>
+              <ion-label class="info-header-title">我的手册</ion-label>
+            </ion-item>
+        </ion-list>
+  </div>
+</div>
+</ion-content>
+</ion-app>

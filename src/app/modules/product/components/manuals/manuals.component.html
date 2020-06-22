@@ -1,0 +1,53 @@
+
+<ion-app>
+  <ion-menu side="start" menuId="manualMenu" contentId="manuals-content">
+      <ion-header class="ion-no-border">
+        <ion-toolbar>
+          <ion-segment (ionChange)="manualSegmentChanged($event)" value="{{manualSegment}}">
+            <ion-segment-button value="1">
+              <ion-label>目录</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="2">
+              <ion-label>结构检索</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="3">
+              <ion-label>全文检索</ion-label>
+            </ion-segment-button>
+          </ion-segment>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <div *ngIf="manualSegment === '1'">
+          <span>目录</span>
+        </div>
+        <div *ngIf="manualSegment === '2'">
+          <span>结构检索</span>
+        </div>
+        <div *ngIf="manualSegment === '3'">
+          <span>全文检索</span>
+        </div>
+    </ion-content>
+  </ion-menu>
+
+
+  <div class="ion-page" id="manual-content">
+    <ion-content class="ion-padding">
+      <ion-router-outlet id="manuals-content"></ion-router-outlet>
+    </ion-content>
+    <ion-footer class="ion-no-border">
+      <ion-toolbar>
+        <ion-segment value="all" (click)="openManualMenu()">
+          <ion-segment-button value="all">
+            <ion-label>目录</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="favorites">
+            <ion-label>小功能</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-toolbar>
+    </ion-footer>
+  </div>  
+</ion-app>
+
+
+

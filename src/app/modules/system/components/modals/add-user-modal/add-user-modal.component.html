@@ -1,0 +1,45 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>编辑用户</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissUserModal()"><ion-icon name="close"></ion-icon></ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+  <form [formGroup]="addUserForm" (ngSubmit)="addUser(addUserForm.value)">
+  <ion-list>
+    <!-- <ion-item>
+      <ion-label>角色</ion-label>
+      <ion-select value="notifications" interface="action-sheet">
+        <ion-select-option value="enable">Enable</ion-select-option>
+        <ion-select-option value="mute">Mute</ion-select-option>
+        <ion-select-option value="mute_week">Mute for a week</ion-select-option>
+        <ion-select-option value="mute_year">Mute for a year</ion-select-option>
+      </ion-select>
+    </ion-item> -->
+
+    <ion-item>
+      <ion-label position="stacked">登录名 <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="username" name="username" [(ngModel)]="username" type="text" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">密码 <ion-text color="danger">*</ion-text></ion-label>
+      <ion-input required formControlName="userpwd" name="userpwd" [(ngModel)]="userpwd" type="text" ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>密级 </ion-label>
+      <ion-select value="机密" interface="action-sheet">
+        <ion-select-option value="普通">普通</ion-select-option>
+        <ion-select-option value="内部">内部</ion-select-option>
+        <ion-select-option value="机密">机密</ion-select-option>
+        <ion-select-option value="秘密">秘密</ion-select-option>
+        <ion-select-option value="绝密">绝密</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <div class="ion-padding">
+    <ion-button expand="block" type="submit"  [disabled]="!addUserForm.valid"  class="ion-no-margin">保存</ion-button>
+  </div>
+</form>
+</ion-content>

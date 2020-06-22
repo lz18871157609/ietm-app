@@ -1,0 +1,28 @@
+<p>
+  about works!
+</p>
+<ion-app>
+  <ion-content>
+    <ion-card *ngFor="let item of aboutList">
+      <ion-card-header>
+        <ion-card-title>V{{item.vNo}}</ion-card-title>
+        <ion-card-subtitle>{{item.vDate}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div *ngIf="item.bugFixes.length > 0" class="bug-fixes">
+        <ion-text color="secondary">
+          <h5>#bug Fixes</h5>
+        </ion-text>
+        <p *ngFor="let bugs of item.bugFixes">{{bugs.title}};</p>
+      </div>
+
+      <div *ngIf="item.features.length > 0" class="features">
+        <ion-text color="secondary">
+          <h5>Features</h5>
+        </ion-text>
+        <p *ngFor="let features of item.features">○&nbsp;&nbsp;&nbsp;{{features.title}};</p>
+      </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+</ion-app>

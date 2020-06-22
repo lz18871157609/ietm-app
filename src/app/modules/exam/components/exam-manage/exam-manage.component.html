@@ -1,0 +1,24 @@
+<ion-app>
+  <ion-header fullscreen>
+  <ion-segment (ionChange)="segmentChanged($event)" value="{{segment}}">
+      <ion-segment-button class="system-btn" value="to-exam">
+        <ion-label>参加考试</ion-label>
+      </ion-segment-button>
+      <ion-segment-button class="system-btn" value="topic-manage">
+        <ion-label>题库管理</ion-label>
+      </ion-segment-button>
+      <ion-segment-button class="system-btn" value="paper-manage">
+        <ion-label>试卷管理</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    <!-- -->
+    </ion-header>
+    <ion-content>
+      <ion-router-outlet id="exam-content"></ion-router-outlet> 
+    </ion-content>
+    <ion-footer>
+      <ion-toolbar>
+        <ion-title class="copyright">copyright by bsti @2020</ion-title>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-app>

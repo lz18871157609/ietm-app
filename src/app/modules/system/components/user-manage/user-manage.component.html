@@ -1,0 +1,35 @@
+<ion-app>
+  <ion-content fullscreen style="overflow-y: auto !important;">
+    <ion-list>
+      <ion-item class="user-col" *ngFor="let list of dataSet" id="user-item-{{list.user_id}}" > 
+        <ion-card class="user-item">
+          <ion-card-content>
+            <h2>{{list.user_name}}</h2>
+            <p>{{list.create_time}}</p>
+            <ion-fab horizontal="end" vertical="bottom" slot="end">
+              <ion-fab-button color="light" >
+                <ion-icon name="settings"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-list side="start">
+                <ion-fab-button color="primary">
+                  <ion-icon name="create"></ion-icon>
+                </ion-fab-button>
+                <ion-fab-button color="warning">
+                  <ion-icon name="trash"></ion-icon>
+                </ion-fab-button>
+                <ion-fab-button color="success">
+                  <ion-icon name="key"></ion-icon>
+                </ion-fab-button>
+              </ion-fab-list>
+            </ion-fab>
+          </ion-card-content>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  <ion-fab horizontal="end" vertical="center" slot="fixed" (click)="addUserModal()">
+    <ion-fab-button color="danger">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  </ion-app>

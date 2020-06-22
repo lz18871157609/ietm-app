@@ -1,0 +1,44 @@
+<ion-app>
+<ion-header>
+  <ion-grid >
+    <ion-row>
+      <ion-col size="3" class="product-info-col">
+        <ion-chip class="product-info-chip" mode="md" color="success" (click)="getProductInfoBy('manuals')">
+          <ion-label class="product-info-chip-label">
+              <ion-icon class="product-info-chip-label-icon" name="newspaper"></ion-icon>
+            <span>技术手册</span>
+          </ion-label>
+        </ion-chip>
+      </ion-col>
+      <ion-col size="3" class="product-info-col">
+        <ion-chip class="product-info-chip" mode="md" color="warning" (click)="getProductInfoBy('operate-train')">
+          <ion-label class="product-info-chip-label">
+              <ion-icon class="product-info-chip-label-icon" name="add"></ion-icon>
+            <span>操作训练</span>
+          </ion-label>
+        </ion-chip>
+      </ion-col>
+      <ion-col size="3" class="product-info-col">
+        <ion-chip class="product-info-chip" mode="md" color="danger" (click)="getProductInfoBy('maintain-train')">
+          <ion-label class="product-info-chip-label">
+              <ion-icon class="product-info-chip-label-icon" name="build"></ion-icon>
+            <span>维修训练</span>
+          </ion-label>
+        </ion-chip>
+      </ion-col>
+      <ion-col size="3" class="product-info-col">
+        <ion-chip class="product-info-chip" mode="md" color="primary" (click)="getProductInfoBy('learn')">
+          <ion-label class="product-info-chip-label">
+              <ion-icon class="product-info-chip-label-icon" name="add"></ion-icon>
+            <span>在线学习</span>
+          </ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <ion-router-outlet id="product-content"></ion-router-outlet> 
+</ion-content>
+</ion-app>

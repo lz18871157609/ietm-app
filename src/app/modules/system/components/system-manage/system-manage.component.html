@@ -1,0 +1,20 @@
+<ion-app>
+  <ion-header fullscreen>
+  <ion-segment (ionChange)="segmentChanged($event)" value="{{segment}}">
+    <ng-container *ngFor="let item of systemMenuList">
+      <ion-segment-button class="system-btn" [value]="item.remark">
+        <ion-label>{{item.menuName}}</ion-label>
+      </ion-segment-button>
+    </ng-container>
+    </ion-segment>
+    <!-- -->
+    </ion-header>
+    <ion-content>
+      <ion-router-outlet id="system-content"></ion-router-outlet> 
+    </ion-content>
+    <ion-footer>
+      <ion-toolbar>
+        <ion-title class="copyright">copyright by bsti @2020</ion-title>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-app>

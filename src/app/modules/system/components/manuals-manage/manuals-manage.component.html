@@ -1,0 +1,21 @@
+<ion-app>
+<ion-content fullscreen style="overflow-y: auto !important;">
+  <ion-list id="list">
+  <ion-item *ngFor="let list of manualsList" id="manual-item-{{list.id}}" >
+      <ion-avatar slot="start">
+        <img src="../../../../../assets/icon/favicon.png">
+      </ion-avatar>
+      <ion-label>
+      <h2>{{list.title}}</h2>
+      <p>{{list.createTime}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+<ion-fab horizontal="end" vertical="center" slot="fixed" (click)="addManual()">
+  <ion-fab-button color="danger">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-app>

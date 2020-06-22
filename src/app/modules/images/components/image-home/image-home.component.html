@@ -1,0 +1,29 @@
+<ion-app>
+  <ion-header fullscreen>
+    <ion-segment (ionChange)="segmentChanged($event)" value="{{segment}}">
+      <ion-segment-button class="system-btn" checked value="distinguish">
+        <ion-label>备件识别</ion-label>
+      </ion-segment-button>
+      <ion-segment-button class="system-btn" value="image-manage">
+        <ion-label>照片管理</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+<!--     <ion-segment (ionChange)="segmentChanged($event)" value="{{segment}}">
+      <ng-container *ngFor="let item of systemMenuList">
+        <ion-segment-button class="system-btn" [value]="item.remark">
+          <ion-label>{{item.menuName}}</ion-label>
+        </ion-segment-button>
+      </ng-container>
+      </ion-segment> -->
+    <!-- -->
+    </ion-header>
+    <ion-content>
+      <ion-router-outlet id="images-content"></ion-router-outlet> 
+    </ion-content>
+    <ion-footer>
+      <ion-toolbar>
+        <ion-title class="copyright">copyright by bsti @2020</ion-title>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-app>

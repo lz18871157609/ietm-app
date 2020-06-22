@@ -1,0 +1,23 @@
+.toolbar-title {
+    text-align: center ;
+}
+
+.login-warp {
+    width: 100%;
+    height: 100%;
+    background: #1b90f4 url(/assets/imgs/login/loginbg.png) no-repeat left top ;
+    background-size: cover;
+    /* position: relative; */
+}
+
+.login-from {
+    width: 100%;
+    padding: 15% 10%;
+}
+.logo-img {
+    width: 6.467vw;
+}
+
+.validation-failed {
+    color: #f5222d;
+}

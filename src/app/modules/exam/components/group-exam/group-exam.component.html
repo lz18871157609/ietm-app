@@ -1,0 +1,40 @@
+<ion-app>
+  <ion-content fullscreen>
+    <ion-grid class="group-grid">
+      <ion-row class="group-row">
+        <ion-col class="group-col">
+          <div class="topic group-left">1 of 2</div>
+        </ion-col>
+        <ion-col  class="group-col">
+          <div class="topic group-right">
+            <ion-list>
+              <ion-list-header>Reorder Icon</ion-list-header>
+              <ion-reorder-group (ionItemReorder)="doReorder($event)" id="reorder" disabled="false">
+                <ion-item>
+                  <ion-reorder slot="start"></ion-reorder>
+                  <ion-label>
+                    Item 1
+                  </ion-label>
+                </ion-item>
+      
+                <ion-item>
+                  <ion-reorder slot="start"></ion-reorder>
+                  <ion-label>
+                    Item 2
+                  </ion-label>
+                </ion-item>
+      
+                <ion-item>
+                  <ion-reorder slot="start"></ion-reorder>
+                  <ion-label>
+                    Item 3
+                  </ion-label>
+                </ion-item>
+                </ion-reorder-group>
+                </ion-list>
+              </div>
+        </ion-col>
+      </ion-row>
+      </ion-grid>
+  </ion-content>
+</ion-app>

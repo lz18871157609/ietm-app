@@ -1,0 +1,99 @@
+.welcome-card img {
+  max-height: 35vh;
+  overflow: hidden;
+}
+
+.home-header {
+  margin: 1vw;
+  padding: 1vw;
+  background: #fff;
+}
+.home-header-setting-label {
+  border-left: 1px solid #a2a4ab;
+  text-align: center;
+}
+.home-header-setting-label .setting-icon {
+  font-size: 2.467vw;
+  padding: 1vw;
+  border-radius: 50%;
+  color: #fff;
+  margin-bottom: 0.5vw;
+}
+.home-header-setting-label .setting-icon1 {
+  background: #ffce00;
+}
+.home-header-setting-label .setting-icon2 {
+  background: #4c8dff;
+}
+.home-header-setting-label>p {
+  font-size: 1.467vw;
+  font-weight: 400;
+  padding-bottom: 1vw;
+}
+
+.home-menu {
+  margin: 1vw;
+  background: #fff;
+}
+.home-menu .home-menu-col {
+  padding: 1vw;
+}
+.home-menu .home-menu-chip {
+  height: 4.467vw;
+  width: 100%;
+  border-radius: 0;
+  text-align: center;
+}
+.home-menu .home-menu-chip-label {
+  font-size: 1.467vw;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.home-menu .home-menu-chip-label .home-menu-chip-label-icon {
+  font-size: 2vw;
+}
+.home-menu .home-menu-chip .home-menu-chip-label-close {
+  font-size: 2vw;
+}
+.home-menu .home-menu-chip-label>span {
+  font-size: 2vw;
+}
+.home-info {
+  float: left;
+  margin: 0 1vw;
+  width: 100%;
+}
+
+.home-info .info {
+  width: 48.4%;
+  
+}
+.home-info .home-history {
+ float: left;
+ margin-right: 0.5vw;
+}
+.home-info .home-history .history-list {
+  padding-right: 1vw;
+}
+.home-info .home-product {
+  float: left;
+  margin-left: 0.5vw;
+ }
+ .info-header-title {
+   font-size: 1.467vw;
+ }
+
+ .history-item {
+/*    padding-top: 1vw; */
+ }
+ .history-label {
+   margin-left: 1vw;
+ }
+ .history-label>h2 {
+   font-size: 1.3vw;
+ }
+ .history-label>p {
+  font-size: 1.3vw;
+  line-height: 2vw;
+}

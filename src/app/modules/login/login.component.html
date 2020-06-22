@@ -1,0 +1,50 @@
+
+<ion-app class="login-warp">
+  <form  [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+    <ion-grid fixed class="login-from">
+        <ion-row>
+            <ion-col size="12"  style="text-align: center;"><img src="../../../assets/imgs/login/bsti-logo-login.png" alt="logo" class="logo-img"></ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col size="12"  style="text-align: center; font-size: 40px; color: #fff;">交互式电子技术手册</ion-col>
+        </ion-row>
+        <!-- <ion-row>
+            <ion-col size="12" style="text-align: center; font-size: 32px; color: #fff;">——集成平台——</ion-col>
+        </ion-row> -->
+   
+      <ion-row style="margin-top: 1vw;">
+        <ion-col size="4"></ion-col>
+        <ion-col size="4">
+          <ion-item>
+            <ion-icon slot="start" name="person" style="margin-right: 0.5vw;"></ion-icon>
+            <ion-input type="text" required formControlName="username" name="username" [(ngModel)]="userinfo.username" placeholder="用户名" ></ion-input>
+          </ion-item>
+          <div *ngIf="!loginForm.controls.username.valid && loginForm.controls.username.touched" class="validation-failed">
+            请输入正确用户名
+          </div>
+        </ion-col>
+        <ion-col size="4"></ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col size="4"></ion-col>
+          <ion-col size="4">
+              <ion-item>
+              <ion-icon slot="start" name="lock-closed" style="margin-right: 0.5vw;"></ion-icon>
+              <ion-input type="password"  required formControlName="userpwd" name="userpwd" [(ngModel)]="userinfo.userpwd" placeholder="密码"  ></ion-input>
+              </ion-item>
+              <div *ngIf="!loginForm.controls.userpwd.valid && loginForm.controls.userpwd.touched" class="validation-failed">
+                请输入密码
+              </div>
+          </ion-col>
+          <ion-col size="4"></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4"></ion-col>
+          <ion-col size="4">
+                <ion-button expand="block" style="width: 100%;" [disabled]="!loginForm.valid" type="submit">登录</ion-button>
+          </ion-col>
+          <ion-col size="4"></ion-col>
+        </ion-row>
+    </ion-grid>
+  </form>
+  </ion-app> 

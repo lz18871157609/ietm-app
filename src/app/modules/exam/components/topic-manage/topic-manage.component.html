@@ -1,0 +1,70 @@
+<ion-app class="topic-list">
+  <ion-content  >
+  <ion-item class="topic-col">
+    <ion-searchbar showCancelButton="always" style="width: 50%;"></ion-searchbar>
+    <ion-label>Notifications</ion-label>
+    <ion-select value="notifications" interface="action-sheet">
+      <ion-select-option value="enable">Enable</ion-select-option>
+      <ion-select-option value="mute">Mute</ion-select-option>
+      <ion-select-option value="mute_week">Mute for a week</ion-select-option>
+      <ion-select-option value="mute_year">Mute for a year</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-list>
+    <ion-item class="topic-col">
+      <ion-card class="topic-item">
+        <ion-card-content>
+          <p>c,mabdkjbaskldai</p>
+          <p>Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.</p>
+          <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+            <ion-fab-button color="light">
+              <ion-icon md="caret-back" ios="chevron-back-circle-outline"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-list side="start">
+              <ion-fab-button color="light">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button color="light">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button color="light">
+                <ion-icon name="logo-vimeo"></ion-icon>
+              </ion-fab-button>
+            </ion-fab-list>
+          </ion-fab>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+    <ion-item class="topic-col"> 
+      <ion-card class="topic-item">
+        <ion-card-content>
+          <p>c,mabdkjbaskldai</p>
+          <p>Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836.</p>
+          <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+            <ion-fab-button color="light">
+              <ion-icon md="caret-back" ios="chevron-back-circle-outline"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-list side="start">
+              <ion-fab-button color="light">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button color="light">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </ion-fab-button>
+              <ion-fab-button color="light">
+                <ion-icon name="logo-vimeo"></ion-icon>
+              </ion-fab-button>
+            </ion-fab-list>
+          </ion-fab>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>
+<ion-fab horizontal="end" vertical="center" slot="fixed" (click)="addTopicModal()">
+  <ion-fab-button color="danger">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+</ion-app>

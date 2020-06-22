@@ -1,7 +1,8 @@
 {
   "name": "ietm-app",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

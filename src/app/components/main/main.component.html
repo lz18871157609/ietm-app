@@ -1,0 +1,48 @@
+
+
+<ion-app>
+  <ion-menu side="start" menuId="appMenu" contentId="main" class="app-menu">
+    <ion-header class="menu-header">
+      <ion-toolbar translucent>
+        <!-- <ion-title>交互式电子技术手册</ion-title> -->
+        <ion-title>蓝海科创</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="app-menu-content">
+      <ion-list class="menu-list">
+        <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+          <ion-item [routerDirection]="'root'" [routerLink]="[p.link]" class="menu-item" (click)="activeMenu(p)">
+            <ion-label class="menu-label">
+              <ion-icon class="menu-icon" slot="start" [name]="p.icon"></ion-icon>
+              <h2>{{p.menuName}}</h2>
+            </ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" id="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start" (click)="openMenu()">
+          <!-- <ion-menu-button auto-hide="false"></ion-menu-button> -->
+          <ion-button color="primary">
+            <ion-icon name="menu"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title >{{menuTitle}}</ion-title>
+        <ion-chip slot="end" class="ion-margin-start"  (click)="settingBtn($event)">
+          <ion-avatar>
+            <img src="../../../assets/shapes.svg">
+          </ion-avatar>
+          <ion-label>{{userInfo.real_name}}</ion-label>
+          <ion-icon class="home-menu-chip-label-close" name="cog"></ion-icon>
+        </ion-chip>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <ion-router-outlet id="main-content"></ion-router-outlet>
+    </ion-content>
+  </div>
+</ion-app>

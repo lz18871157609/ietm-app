@@ -1,0 +1,30 @@
+<ion-app>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="back-btn" *ngIf="isParent" slot="start" (click)="goHistory()">
+      <!-- <ion-back-button icon="arrow-back-outline"></ion-back-button> -->
+      <ion-icon name="arrow-back-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      {{activeManual.manualTitle}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of list2" (click)="toInfo(item)" >
+      <ion-icon [name]="item.icon" slot="start"></ion-icon>
+      {{item.manualName}}
+      <div class="item-note" slot="end" (click)="toProductInfo(item)">
+        <ion-icon name="book"></ion-icon>
+      </div>
+    </ion-item>
+  </ion-list>
+  <!--
+    <div *ngIf="selectedItem" padding>
+      You navigated here from <b>{{selectedItem.title }}</b>
+    </div>
+  -->
+</ion-content>
+</ion-app>
