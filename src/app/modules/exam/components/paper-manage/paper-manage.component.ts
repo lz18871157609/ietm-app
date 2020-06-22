@@ -13,6 +13,10 @@ export class PaperManageComponent implements OnInit {
   ) { }
 
   ngOnInit() {}
+
+  /**
+   * 组卷
+   */
   groupExam() {
     this.navController.navigateForward(['/main/exam/exam-manage/group-exam']);
   }
