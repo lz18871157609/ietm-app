@@ -23,6 +23,10 @@ export class ExamManageComponent implements OnInit {
     }
   }
 
+  /**
+   * 切换菜单tabs
+   * @param event
+   */
   segmentChanged(event) {
     console.log(event);
     this.router.navigate(['/main/exam/exam-manage/' + event.detail.value]);
