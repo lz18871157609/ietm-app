@@ -1,0 +1,49 @@
+ManifestFileVersion: 0
+CRC: 2705031545
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 36bec0c94d8f4a1925c80508b19e6d49
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 09e16f23d2b6081d569923102c5d6c5b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 20
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 81
+  Script: {instanceID: 0}
+- Class: 89
+  Script: {instanceID: 0}
+- Class: 104
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 00c6895045ce74f479452e4d9f9d0fc2, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 157
+  Script: {instanceID: 0}
+- Class: 258
+  Script: {instanceID: 0}
+Assets:
+- Assets/Sample2/Sample2.unity
+Dependencies:
+- D:/Unity3D/UnityLoader/Assets/StreamingAssets/AssetBundles/common.unityweb

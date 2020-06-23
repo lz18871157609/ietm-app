@@ -11,6 +11,7 @@ import { LearnComponent} from './components/learn/learn.component';
 import {PrefaceComponent} from './components/preface/preface.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { importComs } from '../../modules/dmodule/dynamicComponents';
+import { ReactiveFormsModule } from '@angular/forms';
 const PRODUCTCOMPONENTS = [
   ProductManageComponent,
   ProductInfoComponent,
@@ -24,17 +25,18 @@ const PRODUCTCOMPONENTS = [
 
 @NgModule({
   declarations: [
+    ...importComs,
     ...PRODUCTCOMPONENTS,
-    ...importComs
   ],
   imports: [
     CommonModule,
-    IonicModule,
+    IonicModule.forRoot(),
+    ReactiveFormsModule,
     ProductRoutingModule
   ],
   exports: [
+    ...importComs,
     ...PRODUCTCOMPONENTS,
-    ...importComs
   ],
   entryComponents: [
     ...importComs

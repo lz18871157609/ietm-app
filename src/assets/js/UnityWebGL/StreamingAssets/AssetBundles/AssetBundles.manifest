@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 967611829
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: sample2.unityweb
+      Dependencies:
+        Dependency_0: common.unityweb
+    Info_1:
+      Name: sample1.unityweb
+      Dependencies: {}
+    Info_2:
+      Name: sample0.unityweb
+      Dependencies: {}
+    Info_3:
+      Name: common.unityweb
+      Dependencies: {}
+    Info_4:
+      Name: sample3.unityweb
+      Dependencies: {}

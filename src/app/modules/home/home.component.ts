@@ -79,5 +79,7 @@ this.ref.detectChanges();
  */
   closeQuickMenu(menu) {
     this.quickMenuList = this.quickMenuList.filter(item => item.id !== menu.id);
+    this.ref.markForCheck();
+    this.ref.detectChanges();
   }
 }

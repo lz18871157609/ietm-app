@@ -13,7 +13,7 @@ export class AccessPointRefComponent implements OnInit {
 
   text = '';
   @Input('dataSource') dataSource: any;
-  @ViewChild('contentTemp', {static: false, read: ViewContainerRef}) contentTemp: ViewContainerRef;
+  @ViewChild('contentTemp', {static: true, read: ViewContainerRef}) contentTemp: ViewContainerRef;
   constructor(
     private resolve: ComponentFactoryResolver,
     private dynamicComs: DynamicDmComponentService

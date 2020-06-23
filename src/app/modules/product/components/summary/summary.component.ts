@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Logger } from '../../../../common/logger/logger';
 import { HTTP } from '@ionic-native/http/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { FilePath } from '@ionic-native/file-path/ngx';
+
 import * as $ from 'jquery';
+declare var UnityLoader: any;
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
@@ -9,28 +13,49 @@ import * as $ from 'jquery';
 })
 export class SummaryComponent implements OnInit {
   summarySource: any;
+  gameInstance: any;
   constructor(
     private http: HTTP,
-    private logger: Logger
+    private logger: Logger,
+    private file: File,
+    private filePath: FilePath
   ) { }
 
   ngOnInit() {
     const xmlparse = new DOMParser();
-    const url = '../../../../../assets/DMC-BRAKE-AAA-D00-00-00-00AA-00WA-D_001-00_EN-US.XML';
-    this.http.sendRequest(url, {
-      method: 'get'
-    }).then(response => {
-      this.logger.log(response);
+    this.file.readAsText(this.file.externalRootDirectory + 'ietm/pubdata/samples_20170115', 'PMC-S1000DBIKE-B6865-EPWG1-00_001-00_en-US.XML').then(response => {
+     // this.logger.log(response);
+      const xml = xmlparse.parseFromString(response.toString(), 'text/xml');
+      this.summarySource = $(xml);
     });
-
-    this.http.get(url, {}, {}).then(data => {
-      this.logger.log(data);
-      const xml = xmlparse.parseFromString('', 'text/xml');
-      this.logger.log($(xml));
-    }).catch(error => {
-      this.logger.log(error);
-    });
-   // this.summarySource = $(xml);
+    this.initUnity();
   }
 
+  initUnity() {
+    this.logger.log('初始化Unitybox');
+    const gameContainer = $('<div id=\'gameContainer\' class=\'gameContainer\' ></div>');
+    this.file.checkFile(this.file.externalRootDirectory + 'ietm/pubdata/samples_20170115/DataModule/Build/', 'build.json').then(res => {
+      this.logger.log('找到build文件', res);
+      if (res === true) {
+        $('#unity-box').append(gameContainer);
+        setTimeout(() => {
+          this.loadUnity();
+        }, 300);
+      }
+    }).catch(err => {
+      this.logger.log('未找到该文件', err);
+    });
+  }
+
+  loadUnity() {
+    this.logger.log('加载初始化材质模型');
+    this.gameInstance = UnityLoader.instantiate('gameContainer', this.file.externalRootDirectory + 'ietm/pubdata/samples_20170115/DataModule/Build/build.json', {
+      onProgress: (instance, progress) => {
+        this.logger.log('加载进度', progress);
+      }, tabindex: 1
+    });
+    setTimeout(() => {
+      this.gameInstance.LoadSceneFromAssetBundle(this.file.externalRootDirectory + 'ietm/pubdata/samples_20170115/DataModule/StreamingAssets/AssetBundles/icn-rybj-a-5020203-a-d00000216-00001-a-02-20.unityweb');
+    }, 1000);
+  }
 }

@@ -39,7 +39,11 @@
                 "input": "src/global.scss"
               }
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/UnityWebGL/Build/UnityLoader.js",
+              "src/assets/js/UnityWebGL/UnityLoader.js"
+            ]
           },
           "configurations": {
             "production": {

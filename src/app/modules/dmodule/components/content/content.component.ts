@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, ViewChild, ViewContainerRef, ComponentFactoryResolver, ComponentFactory } from '@angular/core';
 import { DynamicDmComponentService } from '../../services/dynamic-dm-component.service';
 import { UTILS } from 'src/utils/utils';
-
+import { Logger } from 'src/app/common/logger/logger';
+import * as $ from 'jquery';
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -13,15 +14,17 @@ export class ContentComponent implements OnInit {
   childIndex = '0';
   $content: any;
   @Input() dataSource;
-  @ViewChild('container', {static: false, read: ViewContainerRef}) container: ViewContainerRef;
+  @ViewChild('container', {static: true, read: ViewContainerRef}) container: ViewContainerRef;
   constructor(
     private resolve: ComponentFactoryResolver,
-    private dynamicComs: DynamicDmComponentService
+    private dynamicComs: DynamicDmComponentService,
+    private logger: Logger
   ) { }
 
   ngOnInit() {}
   ngOnChanges(changes: any): void {
    // this.container.clear();
+    this.logger.log(changes.dataSource);
     if (changes['dataSource'].currentValue !== undefined) {
       // xml
       let doc = changes.dataSource.currentValue;

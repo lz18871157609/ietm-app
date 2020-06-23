@@ -33,6 +33,6 @@ export class ManualsComponent implements OnInit {
 
   loadSummary() {
     const xmlhref = 'xxx';
-    this.navController.navigateRoot(['/main/product/product-info/manuals/summary']);
+    this.navController.navigateForward(['/main/product/product-info/manuals/summary']);
   }
 }

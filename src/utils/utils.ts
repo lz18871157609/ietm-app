@@ -50,8 +50,12 @@ const UTILS = {
 },
 
     componentExist(name) {
-        const importComs = ['AccessPointRefComponent', 'AcronymComponent', 'AcronymDefinitionComponent', 'AcronymTermComponent', 'ActionComponent',
-    'DmoduleComponent', 'ContentComponent'];
+        const importComs = ['DisplacementComponent', 'AccessPointRefComponent', 'AcronymComponent', 'AcronymDefinitionComponent', 'AcronymTermComponent', 'ActionComponent',
+    'DmoduleComponent', 'ContentComponent', 'DisplayTextComponent', 'ApplicComponent', 'AssertComponent',
+'DmCodeComponent', 'DmRefComponent', 'DmRefAddressItemsComponent', 'DmRefIdentComponent', 'DmTitleComponent',
+'EvaluateComponent', 'InfoNameComponent', 'IssueDateComponent', 'IssueInfoComponent', 'LanguageComponent',
+'ParaComponent', 'PmEntryComponent', 'ReferencedApplicGroupComponent', 'SimpleParaComponent', 'TechNameComponent'
+];
         if (importComs.findIndex(t => t === name) > -1) {
             return name;
         } else {
