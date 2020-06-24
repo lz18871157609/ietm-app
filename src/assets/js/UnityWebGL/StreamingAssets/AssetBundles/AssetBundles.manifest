@@ -1,20 +1,28 @@
 ManifestFileVersion: 0
-CRC: 967611829
+CRC: 1005476215
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: sample2.unityweb
-      Dependencies:
-        Dependency_0: common.unityweb
-    Info_1:
       Name: sample1.unityweb
       Dependencies: {}
+    Info_1:
+      Name: sample2.unityweb
+      Dependencies: {}
     Info_2:
-      Name: sample0.unityweb
+      Name: sample3.unityweb
       Dependencies: {}
     Info_3:
-      Name: common.unityweb
+      Name: icn-rybj-a-5020203-a-d00000216-00001-a-02-20.unityweb
       Dependencies: {}
     Info_4:
-      Name: sample3.unityweb
+      Name: icn-rybj-a-5020203-a-d00000216-00001-a-02-27.unityweb
+      Dependencies: {}
+    Info_5:
+      Name: sencon.unityweb
+      Dependencies: {}
+    Info_6:
+      Name: scen01_1.unityweb
+      Dependencies: {}
+    Info_7:
+      Name: scen01_2.unityweb
       Dependencies: {}

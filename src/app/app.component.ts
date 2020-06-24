@@ -55,7 +55,8 @@ export class AppComponent {
           this.androidPermissions.requestPermissions([
             this.androidPermissions.PERMISSION.CAMERA,
             this.androidPermissions.PERMISSION.WRITE_EXTERNAL_STORAGE,
-            this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE
+            this.androidPermissions.PERMISSION.READ_EXTERNAL_STORAGE,
+            this.androidPermissions.PERMISSION.MOUNT_UNMOUNT_FILESYSTEMS
           ]).then(() => {
             this.sqliteService.initDb();
           });

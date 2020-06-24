@@ -56,7 +56,7 @@ if (!UnityLoader.__instantiate) {
         };
 
         instance.LoadSceneFromAssetBundle = function (url) {
-            this.LoadDefaultScene();
+            //this.LoadDefaultScene();
             this.SendMessage("UnityLoader", "LoadSceneFromAssetBundle", url);
         };
 

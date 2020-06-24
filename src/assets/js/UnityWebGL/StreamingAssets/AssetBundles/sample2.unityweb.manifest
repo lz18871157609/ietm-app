@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2705031545
+CRC: 1147277766
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 36bec0c94d8f4a1925c80508b19e6d49
+    Hash: 0f133f5586890f5def782aa16f4da592
   TypeTreeHash:
     serializedVersion: 2
     Hash: 09e16f23d2b6081d569923102c5d6c5b
@@ -45,5 +45,4 @@ ClassTypes:
   Script: {instanceID: 0}
 Assets:
 - Assets/Sample2/Sample2.unity
-Dependencies:
-- D:/Unity3D/UnityLoader/Assets/StreamingAssets/AssetBundles/common.unityweb
+Dependencies: []
