@@ -15,6 +15,9 @@ ionic build
 打包成混合app项目:
 
 ionic build
+
 ionic cordova platform add android
+
 ionic cordova build android
+
 ionic cordova run android
