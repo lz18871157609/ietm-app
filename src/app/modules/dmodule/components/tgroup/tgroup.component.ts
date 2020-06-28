@@ -4,15 +4,16 @@ import { UTILS } from 'src/utils/utils';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-system-position',
-  templateUrl: './system-position.component.html',
-  styleUrls: ['./system-position.component.scss'],
+  selector: 'app-tgroup',
+  templateUrl: './tgroup.component.html',
+  styleUrls: ['./tgroup.component.scss'],
 })
-export class SystemPositionComponent implements OnInit {
-  xmlTag = 'systemPositionTemp';
+export class TgroupComponent implements OnInit {
+
+  xmlTag = 'tgroupTemp';
   text = '';
   @Input('dataSource') dataSource;
-  @ViewChild('systemPositionTemp', {static: true, read: ViewContainerRef}) systemPositionTemp: ViewContainerRef;
+  @ViewChild('tgroupTemp', {static: true, read: ViewContainerRef}) tgroupTemp: ViewContainerRef;
   constructor(
     private resolve: ComponentFactoryResolver,
     private dynamicComs: DynamicDmComponentService
@@ -51,8 +52,8 @@ export class SystemPositionComponent implements OnInit {
   }
   createComponent(node, nodeComponent) {
     const nodeComp: ComponentFactory<any> = this.resolve.resolveComponentFactory(nodeComponent);
-    const nodeCp = this.systemPositionTemp.createComponent(nodeComp);
+    const nodeCp = this.tgroupTemp.createComponent(nodeComp);
     nodeCp.instance.dataSource = node;
   }
-}
 
+}

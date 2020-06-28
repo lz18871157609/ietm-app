@@ -4,15 +4,16 @@ import { UTILS } from 'src/utils/utils';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-system-position',
-  templateUrl: './system-position.component.html',
-  styleUrls: ['./system-position.component.scss'],
+  selector: 'app-thumb-tab-text',
+  templateUrl: './thumb-tab-text.component.html',
+  styleUrls: ['./thumb-tab-text.component.scss'],
 })
-export class SystemPositionComponent implements OnInit {
-  xmlTag = 'systemPositionTemp';
+export class ThumbTabTextComponent implements OnInit {
+
+  xmlTag = 'thumbTabTextTemp';
   text = '';
   @Input('dataSource') dataSource;
-  @ViewChild('systemPositionTemp', {static: true, read: ViewContainerRef}) systemPositionTemp: ViewContainerRef;
+  @ViewChild('thumbTabTextTemp', {static: true, read: ViewContainerRef}) thumbTabTextTemp: ViewContainerRef;
   constructor(
     private resolve: ComponentFactoryResolver,
     private dynamicComs: DynamicDmComponentService
@@ -51,8 +52,8 @@ export class SystemPositionComponent implements OnInit {
   }
   createComponent(node, nodeComponent) {
     const nodeComp: ComponentFactory<any> = this.resolve.resolveComponentFactory(nodeComponent);
-    const nodeCp = this.systemPositionTemp.createComponent(nodeComp);
+    const nodeCp = this.thumbTabTextTemp.createComponent(nodeComp);
     nodeCp.instance.dataSource = node;
   }
-}
 
+}

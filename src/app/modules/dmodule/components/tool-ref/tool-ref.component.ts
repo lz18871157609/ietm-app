@@ -4,15 +4,16 @@ import { UTILS } from 'src/utils/utils';
 import * as $ from 'jquery';
 
 @Component({
-  selector: 'app-system-position',
-  templateUrl: './system-position.component.html',
-  styleUrls: ['./system-position.component.scss'],
+  selector: 'app-tool-ref',
+  templateUrl: './tool-ref.component.html',
+  styleUrls: ['./tool-ref.component.scss'],
 })
-export class SystemPositionComponent implements OnInit {
-  xmlTag = 'systemPositionTemp';
+export class ToolRefComponent implements OnInit {
+
+  xmlTag = 'toolRefTemp';
   text = '';
   @Input('dataSource') dataSource;
-  @ViewChild('systemPositionTemp', {static: true, read: ViewContainerRef}) systemPositionTemp: ViewContainerRef;
+  @ViewChild('toolRefTemp', {static: true, read: ViewContainerRef}) toolRefTemp: ViewContainerRef;
   constructor(
     private resolve: ComponentFactoryResolver,
     private dynamicComs: DynamicDmComponentService
@@ -51,8 +52,8 @@ export class SystemPositionComponent implements OnInit {
   }
   createComponent(node, nodeComponent) {
     const nodeComp: ComponentFactory<any> = this.resolve.resolveComponentFactory(nodeComponent);
-    const nodeCp = this.systemPositionTemp.createComponent(nodeComp);
+    const nodeCp = this.toolRefTemp.createComponent(nodeComp);
     nodeCp.instance.dataSource = node;
   }
-}
 
+}

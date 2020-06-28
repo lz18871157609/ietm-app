@@ -2,17 +2,16 @@ import { Component, OnInit, ComponentFactoryResolver, ComponentFactory, ViewCont
 import { DynamicDmComponentService } from '../../services/dynamic-dm-component.service';
 import { UTILS } from 'src/utils/utils';
 import * as $ from 'jquery';
-
 @Component({
-  selector: 'app-system-position',
-  templateUrl: './system-position.component.html',
-  styleUrls: ['./system-position.component.scss'],
+  selector: 'app-variable-declarations',
+  templateUrl: './variable-declarations.component.html',
+  styleUrls: ['./variable-declarations.component.scss'],
 })
-export class SystemPositionComponent implements OnInit {
-  xmlTag = 'systemPositionTemp';
+export class VariableDeclarationsComponent implements OnInit {
+xmlTag = 'variableDeclarationsTemp';
   text = '';
   @Input('dataSource') dataSource;
-  @ViewChild('systemPositionTemp', {static: true, read: ViewContainerRef}) systemPositionTemp: ViewContainerRef;
+  @ViewChild('variableDeclarationsTemp', {static: true, read: ViewContainerRef}) variableDeclarationsTemp: ViewContainerRef;
   constructor(
     private resolve: ComponentFactoryResolver,
     private dynamicComs: DynamicDmComponentService
@@ -51,8 +50,8 @@ export class SystemPositionComponent implements OnInit {
   }
   createComponent(node, nodeComponent) {
     const nodeComp: ComponentFactory<any> = this.resolve.resolveComponentFactory(nodeComponent);
-    const nodeCp = this.systemPositionTemp.createComponent(nodeComp);
+    const nodeCp = this.variableDeclarationsTemp.createComponent(nodeComp);
     nodeCp.instance.dataSource = node;
   }
-}
 
+}

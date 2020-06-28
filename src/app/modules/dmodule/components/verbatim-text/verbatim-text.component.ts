@@ -2,17 +2,16 @@ import { Component, OnInit, ComponentFactoryResolver, ComponentFactory, ViewCont
 import { DynamicDmComponentService } from '../../services/dynamic-dm-component.service';
 import { UTILS } from 'src/utils/utils';
 import * as $ from 'jquery';
-
 @Component({
-  selector: 'app-system-position',
-  templateUrl: './system-position.component.html',
-  styleUrls: ['./system-position.component.scss'],
+  selector: 'app-verbatim-text',
+  templateUrl: './verbatim-text.component.html',
+  styleUrls: ['./verbatim-text.component.scss'],
 })
-export class SystemPositionComponent implements OnInit {
-  xmlTag = 'systemPositionTemp';
+export class VerbatimTextComponent implements OnInit {
+xmlTag = 'verbatimTextTemp';
   text = '';
   @Input('dataSource') dataSource;
-  @ViewChild('systemPositionTemp', {static: true, read: ViewContainerRef}) systemPositionTemp: ViewContainerRef;
+  @ViewChild('verbatimTextTemp', {static: true, read: ViewContainerRef}) verbatimTextTemp: ViewContainerRef;
   constructor(
     private resolve: ComponentFactoryResolver,
     private dynamicComs: DynamicDmComponentService
@@ -51,8 +50,8 @@ export class SystemPositionComponent implements OnInit {
   }
   createComponent(node, nodeComponent) {
     const nodeComp: ComponentFactory<any> = this.resolve.resolveComponentFactory(nodeComponent);
-    const nodeCp = this.systemPositionTemp.createComponent(nodeComp);
+    const nodeCp = this.verbatimTextTemp.createComponent(nodeComp);
     nodeCp.instance.dataSource = node;
   }
-}
 
+}

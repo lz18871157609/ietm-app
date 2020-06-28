@@ -2,17 +2,16 @@ import { Component, OnInit, ComponentFactoryResolver, ComponentFactory, ViewCont
 import { DynamicDmComponentService } from '../../services/dynamic-dm-component.service';
 import { UTILS } from 'src/utils/utils';
 import * as $ from 'jquery';
-
 @Component({
-  selector: 'app-system-position',
-  templateUrl: './system-position.component.html',
-  styleUrls: ['./system-position.component.scss'],
+  selector: 'app-variable-ref',
+  templateUrl: './variable-ref.component.html',
+  styleUrls: ['./variable-ref.component.scss'],
 })
-export class SystemPositionComponent implements OnInit {
-  xmlTag = 'systemPositionTemp';
+export class VariableRefComponent implements OnInit {
+xmlTag = 'variableRefTemp';
   text = '';
   @Input('dataSource') dataSource;
-  @ViewChild('systemPositionTemp', {static: true, read: ViewContainerRef}) systemPositionTemp: ViewContainerRef;
+  @ViewChild('variableRefTemp', {static: true, read: ViewContainerRef}) variableRefTemp: ViewContainerRef;
   constructor(
     private resolve: ComponentFactoryResolver,
     private dynamicComs: DynamicDmComponentService
@@ -51,8 +50,8 @@ export class SystemPositionComponent implements OnInit {
   }
   createComponent(node, nodeComponent) {
     const nodeComp: ComponentFactory<any> = this.resolve.resolveComponentFactory(nodeComponent);
-    const nodeCp = this.systemPositionTemp.createComponent(nodeComp);
+    const nodeCp = this.variableRefTemp.createComponent(nodeComp);
     nodeCp.instance.dataSource = node;
   }
-}
 
+}
