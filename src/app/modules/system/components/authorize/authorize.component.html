@@ -1,0 +1,25 @@
+<ion-app>
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-title>角色授权-</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content fullscreen>
+    <ion-list *ngFor="let menus of menuList">
+      <ion-list-header>
+        <ion-chip (click)="chioseMenu(menus)" [color]="menus.isChecked?'primary':''">
+          <ion-icon name="checkmark-circle"></ion-icon>
+          <ion-label>{{menus.menuName}}</ion-label>
+        </ion-chip>
+      </ion-list-header>
+        <ion-item class="sub-menu">
+          <ng-container  *ngIf="menus.children && menus.children.length > 0">
+          <ion-chip *ngFor="let item of menus.children" (click)="chioseMenu(item)" [color]="item.isChecked?'primary':''">
+            <ion-icon name="checkmark-circle"></ion-icon>
+            <ion-label>{{item.menuName}}</ion-label>
+          </ion-chip>
+        </ng-container>
+        </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-app>

@@ -9,6 +9,7 @@ import { DataDownComponent} from './components/data-down/data-down.component';
 import { DataUpComponent} from './components/data-up/data-up.component';
 import { FeedBackComponent } from './components/feed-back/feed-back.component';
 import { AddUserModalComponent } from './components/modals/add-user-modal/add-user-modal.component';
+import { AuthorizeComponent } from './components/authorize/authorize.component';
 const routes: Routes = [
   {path: 'system-manage', component: SystemManageComponent,
 children: [
@@ -20,6 +21,7 @@ children: [
   {path: 'data-up', component: DataUpComponent},
   {path: 'feed-back', component: FeedBackComponent},
   {path: 'add-user-modal', component: AddUserModalComponent},
+  {path: 'authorize', component: AuthorizeComponent},
 ]
 },
   {path: '', redirectTo: 'system-manage', pathMatch: 'fill'}

@@ -29,13 +29,13 @@ export class SummaryComponent implements OnInit {
       const xml = xmlparse.parseFromString(response.toString(), 'text/xml');
       this.summarySource = $(xml);
     }); */
-    this.initUnity();
+   // this.initUnity();
   }
 
   initUnity() {
     this.logger.log('初始化Unitybox');
     const gameContainer = $("<div id='gameContainer' class='gameContainer' ></div>");
-   /*  this.file.checkFile(this.file.externalRootDirectory + 'ietm/pubdata/samples_20170115/DataModule/Build/', 'build.json').then(res => {
+    this.file.checkFile(this.file.externalRootDirectory + 'ietm/pubdata/samples_20170115/DataModule/Build/', 'build.json').then(res => {
       this.logger.log('找到build文件', res);
       if (res === true) {
         $('#unity-box').append(gameContainer);
@@ -45,11 +45,7 @@ export class SummaryComponent implements OnInit {
       }
     }).catch(err => {
       this.logger.log('未找到该文件', err);
-    }); */
-    $('#unity-box').append(gameContainer);
-      setTimeout(() => {
-        this.loadUnity();
-      }, 300);
+    });
   }
 
   loadUnity() {

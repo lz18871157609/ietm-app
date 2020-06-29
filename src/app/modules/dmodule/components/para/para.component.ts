@@ -26,8 +26,8 @@ export class ParaComponent implements OnInit {
     this.currentId = `${this.xmlTag}${this.dataSource.childIndex}`;
     if (this.dataSource[0].children.length > 0) {
       this.selectNode(this.dataSource);
-      this.showPara(this.dataSource);
     } else {
+      this.showPara(this.dataSource);
       this.handlerCurrent(this.dataSource[0]);
     }
   }
@@ -47,6 +47,7 @@ export class ParaComponent implements OnInit {
    */
   selectNode(rootData) {
     const self = this;
+    self.text = rootData[0].childNodes[0].textContent;
     rootData.children().each(function (i) {
       let childIndex = rootData.childIndex + '-' + i;
       self.handlerNode($(this), childIndex);

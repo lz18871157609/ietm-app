@@ -55,6 +55,7 @@ export class MainComponent implements OnInit {
             link: data.res.rows.item(i).link,
             level: data.res.rows.item(i).menu_code,
             sortNo: data.res.rows.item(i).sort_no,
+            parentId: data.res.rows.item(i).parent_menu_id,
             status: data.res.rows.item(i).status
           });
           }

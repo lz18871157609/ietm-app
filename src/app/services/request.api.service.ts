@@ -9,7 +9,7 @@ const REQUESTSQL = {
     + ' LEFT JOIN sys_role sr on sur.role_id = sr.role_id'
     + ' where su.user_name = ? and su.user_pwd = ?',
     loginJudge: 'select count(*) as num from sys_user where user_name = ?',
-    queryMenuByRoleId: 'SELECT sm.menu_id, sm.menu_code, sm.menu_name, sm.icon, sm.link, sm.remark, sm.sort_no, sm.status'
+    queryMenuByRoleId: 'SELECT sm.menu_id, sm.menu_code, sm.menu_name, sm.icon, sm.link, sm.remark, sm.sort_no, sm.status, sm.parent_menu_id'
     + ' FROM sys_role_menu_action_rel srm '
     + ' LEFT JOIN sys_menu sm on srm.menu_id = sm.menu_id'
     + ' where srm.role_id = ? and srm.manual_id = 0',

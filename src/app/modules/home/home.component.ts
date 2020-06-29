@@ -9,8 +9,9 @@ import { ToastServiceService} from '../../services/toast-service.service';
   templateUrl: 'home.component.html',
   styleUrls: ['home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent  implements OnInit {
   historyInfo: [];
+  userInfo: any;
   menuList = [
     {text: '技术手册', value: 1},
     {text: '题库管理', value: 2},
@@ -34,6 +35,9 @@ export class HomeComponent {
     private toastServiceService: ToastServiceService,
     private ref: ChangeDetectorRef
   ) {}
+  ngOnInit(): void {
+    this.userInfo = JSON.parse(sessionStorage.getItem('user'));
+  }
 
   /**
    * 展示快捷菜单选项

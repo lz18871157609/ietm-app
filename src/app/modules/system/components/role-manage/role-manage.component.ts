@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonInfiniteScroll, IonSlides } from '@ionic/angular';
+import { IonInfiniteScroll, IonSlides , NavController} from '@ionic/angular';
 import { ToastController, AlertController, ModalController } from '@ionic/angular';
 @Component({
   selector: 'app-role-manage',
@@ -30,13 +30,16 @@ pageSize = 7;
   constructor(
     private toastController: ToastController,
     private alertController: AlertController,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private navController: NavController
   ) { }
 
   ngOnInit() {
   }
 
-  
+  authorize() {
+    this.navController.navigateForward(['/main/system/system-manage/authorize']);
+  }
   async addManual() {
   }
 }
