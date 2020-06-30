@@ -19,6 +19,14 @@
       <ion-content>
         <div *ngIf="manualSegment === '1'">
           <span>目录</span>
+          <ion-list>
+            <ion-list-header lines="inset">
+              <ion-label>Trending</ion-label>
+            </ion-list-header>
+            <ion-item *ngFor="let item of manualList" (click)="toSummary(item)" >
+              {{item.manualName}}
+            </ion-item>
+          </ion-list>
         </div>
         <div *ngIf="manualSegment === '2'">
           <span>结构检索</span>

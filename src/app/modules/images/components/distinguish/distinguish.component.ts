@@ -66,7 +66,6 @@ export class DistinguishComponent implements OnInit {
           // tslint:disable-next-line: prefer-for-of
           for (let i = 0; i < results.length; i++) {
             this.logger.log(results[i]);
-            console.log('Image URI: ' + results[i]);
             this.getCrop(results[i]);
         }
         }).catch(err => {

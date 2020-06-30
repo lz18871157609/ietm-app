@@ -5,10 +5,28 @@
   </ion-toolbar>
 </ion-header>
 <ion-content fullscreen>
- <div id="div1"></div>
+ <div class="topic-edit" id="div1"></div>
+ <div class="topic-answer">
+  <ion-list>
+    <ion-button (click)="addAnswer()" color="primary"><ion-icon name="add"></ion-icon>添加</ion-button>
+      <ion-button color="light"><ion-icon name="brush"></ion-icon>修改</ion-button>
+      <ion-button color="light"><ion-icon name="trash"></ion-icon>删除</ion-button>
+    <ion-item>
+      <ion-checkbox color="dark" checked slot="start"></ion-checkbox>
+      <ion-label>
+        <h2>Finn</h2>
+        <h3>I'm a big deal</h3>
+        <p>Listen, I've had a pretty messed up day...</p>
+      </ion-label>
+    </ion-item>
+    </ion-list>
+ </div>
+ <div class="answer-chiose">
+
+ </div>
  <div class="ion-padding">
-  <ion-button expand="block" (click)="getHtml()" class="ion-no-margin add-topic-btn">保存</ion-button>
-  <ion-button expand="block" (click)="back()" class="ion-no-margin add-topic-btn">返回</ion-button>
+  <ion-button color="primary" (click)="getHtml()" > 保存</ion-button>
+  <ion-button  (click)="back()" >返回</ion-button>
 </div>
 </ion-content>
 </ion-app>

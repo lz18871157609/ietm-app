@@ -8,21 +8,23 @@ import { ToExamComponent } from './components/to-exam/to-exam.component';
 import { PaperManageComponent } from './components/paper-manage/paper-manage.component';
 import { AddTopicModalComponent} from './components/modals/add-topic-modal/add-topic-modal.component';
 import { GroupExamComponent } from './components/group-exam/group-exam.component';
+import { TopicAnswerModalComponent } from './components/modals/topic-answer-modal/topic-answer-modal.component';
 const EXAMCOMPONENTS = [
   TopicManageComponent,
   ExamManageComponent,
   ToExamComponent,
   PaperManageComponent,
   AddTopicModalComponent,
-  GroupExamComponent
+  GroupExamComponent,
+  TopicAnswerModalComponent
 ];
 @NgModule({
   declarations: [
     ...EXAMCOMPONENTS
   ],
-  /* entryComponents: [
-    AddTopicModalComponent
-  ], */
+  entryComponents: [
+    TopicAnswerModalComponent
+  ],
   imports: [
     CommonModule,
     IonicModule,

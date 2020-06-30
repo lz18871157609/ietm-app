@@ -28,6 +28,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { HTTP } from '@ionic-native/http/ngx';
 import { Zip } from '@ionic-native/zip/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 
 import { SQLiteService } from './services/sqlite-service.service';
 import {Logger} from './common/logger/logger';
@@ -96,6 +97,7 @@ const COMPONENTS = [
     Zip,
     FilePath,
     ImagePicker,
+    PhotoViewer,
     SQLite,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

@@ -3,6 +3,7 @@ import * as wangEditor from 'wangeditor';
 import { Logger } from '../../../../../common/logger/logger';
 import { ToastController, AlertController, ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { TopicAnswerModalComponent } from '../topic-answer-modal/topic-answer-modal.component';
 @Component({
   selector: 'app-add-topic-modal',
   templateUrl: './add-topic-modal.component.html',
@@ -24,6 +25,7 @@ export class AddTopicModalComponent implements OnInit {
     this.editor = new wangEditor(editordom);
     this.editor.customConfig.uploadImgShowBase64 = true;
     this.editor.create();
+    this.editor.$textContainerElem.css('height', '8vw');
     this.logger.log(this.editor);
   }
 
@@ -35,5 +37,18 @@ export class AddTopicModalComponent implements OnInit {
   }
   back() {
   history.back();
+  }
+
+  async addAnswer() {
+    let modal = await this.modalController.create({
+      component: TopicAnswerModalComponent,
+      cssClass: 'add-topic-answer'
+    });
+    modal.present();
+    this.logger.log(modal);
+    const { data } = await modal.onDidDismiss();
+    if (data.dismiss === 'undefined' || data.dismiss === true) {
+
+    }
   }
 }

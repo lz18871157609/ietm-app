@@ -24,6 +24,13 @@ export class AboutComponent implements OnInit {
       {title: '新增日志模板、用户登录日志写入'},
     ]
   },
+  {vNo: '2.2.2', vDate: '2020-06-30', bugFixes: [],
+    features: [
+      {title: '新增DM组件(A-Z)'},
+      {title: '手册XML解析DEMO展示'},
+      {title: 'Unity3d DEMO展示'},
+    ]
+  },
   ]
   constructor() { }
 

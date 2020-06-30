@@ -3,9 +3,10 @@ import { Logger } from '../../../../common/logger/logger';
 import { HTTP } from '@ionic-native/http/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
-
+import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import * as $ from 'jquery';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { ModalController } from '@ionic/angular';
+
 declare var UnityLoader: any;
 @Component({
   selector: 'app-summary',
@@ -16,11 +17,14 @@ export class SummaryComponent implements OnInit {
   summarySource: any;
   gameInstance: any;
   progress: any;
+  src: any;
   constructor(
     private http: HTTP,
     private logger: Logger,
     private file: File,
-    private filePath: FilePath
+    private filePath: FilePath,
+    private modalController: ModalController,
+    private photoViewer: PhotoViewer
   ) { }
 
   ngOnInit() {
@@ -30,14 +34,21 @@ export class SummaryComponent implements OnInit {
       this.summarySource = $(xml);
     }); */
    // this.initUnity();
+   // 展示图片
+   this.file.readAsDataURL(this.file.externalRootDirectory + 'ietm/pubdata/samples_20170115/', 'ICN-C0419-S1000D0360-001-01.PNG').then(response => {
+     this.src = response;
+   });
   }
-
+  onTap(event) {
+    this.photoViewer.show(this.src );
+    this.logger.log(event);
+  }
   initUnity() {
     this.logger.log('初始化Unitybox');
     const gameContainer = $("<div id='gameContainer' class='gameContainer' ></div>");
     this.file.checkFile(this.file.externalRootDirectory + 'ietm/pubdata/samples_20170115/DataModule/Build/', 'build.json').then(res => {
       this.logger.log('找到build文件', res);
-      if (res === true) {
+      if (res === true) { 
         $('#unity-box').append(gameContainer);
         setTimeout(() => {
           this.loadUnity();
