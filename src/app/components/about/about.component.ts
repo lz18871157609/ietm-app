@@ -34,6 +34,8 @@ export class AboutComponent implements OnInit {
   {vNo: '2.2.3', vDate: '2020-07-04', bugFixes: [],
     features: [
       {title: '解析PMC技术手册菜单'},
+      {title: '解析DMC数据展示'},
+      {title: '菜单功能优化'},
     ]
   },
   ]
