@@ -42,7 +42,7 @@ export class SystemManageComponent implements OnInit {
 
   /**
    * 切换菜单 跳转路由
-   * @param event 
+   * @param event
    */
   segmentChanged(event) {
     console.log(event);
