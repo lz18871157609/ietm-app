@@ -5,13 +5,15 @@ import { File } from '@ionic-native/file/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import * as $ from 'jquery';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController, NavParams } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 declare var UnityLoader: any;
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
   styleUrls: ['./summary.component.scss'],
+  providers: [NavParams]
 })
 export class SummaryComponent implements OnInit {
   summarySource: any;
@@ -24,7 +26,10 @@ export class SummaryComponent implements OnInit {
     private file: File,
     private filePath: FilePath,
     private modalController: ModalController,
-    private photoViewer: PhotoViewer
+    private photoViewer: PhotoViewer,
+    private activatedRoute: ActivatedRoute,
+    private navController: NavController,
+    private navParams: NavParams
   ) { }
 
   ngOnInit() {
@@ -33,11 +38,22 @@ export class SummaryComponent implements OnInit {
       const xml = xmlparse.parseFromString(response.toString(), 'text/xml');
       this.summarySource = $(xml);
     }); */
+    const xmlparse = new DOMParser();
+    this.activatedRoute.queryParams.subscribe(params => {
+      this.file.readAsText(this.file.externalRootDirectory + 'ietm/pubdata/samples_20170115/', params.hrefxml).then(response => {
+        const xml = xmlparse.parseFromString(response.toString(), 'text/xml');
+        const xmlDoc = $.parseXML(response);
+        this.summarySource = $(xml);
+      });
+    });
+  /*   if (this.navParams.get('hrefxml')) {
+      
+    } */
    // this.initUnity();
    // 展示图片
-   this.file.readAsDataURL(this.file.externalRootDirectory + 'ietm/pubdata/samples_20170115/', 'ICN-C0419-S1000D0360-001-01.PNG').then(response => {
+ /*   this.file.readAsDataURL(this.file.externalRootDirectory + 'ietm/pubdata/samples_20170115/', 'ICN-C0419-S1000D0360-001-01.PNG').then(response => {
      this.src = response;
-   });
+   }); */
   }
   onTap(event) {
     this.photoViewer.show(this.src );

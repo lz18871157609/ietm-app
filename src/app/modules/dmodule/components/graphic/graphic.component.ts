@@ -2,21 +2,24 @@ import { Component, OnInit, ComponentFactoryResolver, ComponentFactory, ViewCont
 import { DynamicDmComponentService } from '../../services/dynamic-dm-component.service';
 import { UTILS } from 'src/utils/utils';
 import * as $ from 'jquery';
-
+import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
+import { File } from '@ionic-native/file/ngx';
 @Component({
   selector: 'app-graphic',
   templateUrl: './graphic.component.html',
   styleUrls: ['./graphic.component.scss'],
 })
 export class GraphicComponent implements OnInit {
-
+  src: any;
   xmlTag = 'graphicTemp';
   text = '';
   @Input('dataSource') dataSource;
   @ViewChild('graphicTemp', {static: true, read: ViewContainerRef}) graphicTemp: ViewContainerRef;
   constructor(
     private resolve: ComponentFactoryResolver,
-    private dynamicComs: DynamicDmComponentService
+    private dynamicComs: DynamicDmComponentService,
+    private photoViewer: PhotoViewer,
+    private file: File,
   ) { }
 
   ngOnInit() {
@@ -25,6 +28,12 @@ export class GraphicComponent implements OnInit {
     } else {
       this.handlerCurrent(this.dataSource[0]);
     }
+    this.file.readAsDataURL(this.file.externalRootDirectory + 'ietm/pubdata/samples_20170115/', 'ICN-C0419-S1000D0360-001-01.PNG').then(response => {
+      this.src = response;
+    });
+  }
+  onTap(event, src) {
+    this.photoViewer.show(this.src );
   }
   handlerCurrent(current) {
     this.text = current.textContent;

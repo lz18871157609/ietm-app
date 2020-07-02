@@ -3,6 +3,7 @@ import { MenuController, IonSlides, NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { File } from '@ionic-native/file/ngx';
 import { PmEntryService } from '../../../../services/pmEntry.service';
+import { HttpClient } from '@angular/common/http';
 import * as $ from 'jquery';
 @Component({
   selector: 'app-manuals',
@@ -17,7 +18,8 @@ export class ManualsComponent implements OnInit {
     private navController: NavController,
     private router: Router,
     private file: File,
-    private pmEntryService: PmEntryService
+    private pmEntryService: PmEntryService,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
@@ -34,18 +36,21 @@ export class ManualsComponent implements OnInit {
 
   manualSegmentChanged(event) {
     this.manualSegment = event.detail.value;
-    this.toSummary();
   }
 
   loadManualList() {
+    let that = this;
     const xmlparse = new DOMParser();
     this.file.readAsText(this.file.externalRootDirectory + 'ietm/pubdata/samples_20170115', 'PMC-S1000DLIGHTING-B6865-EPWG1-00_001-00_en-US.XML').then(response => {
-      const xml = xmlparse.parseFromString(response.toString(), 'text/xml');
-      this.pmEntryService.analysisPmEntry($(xml as any).find('content'));
-    });
+      const xml = xmlparse.parseFromString(response, 'text/xml');
+      const xmlDoc = $.parseXML(response);
+      that.manualList  = that.pmEntryService.analysisPmEntry($(xmlDoc as any).find('content'));
+    })
   }
-  toSummary() {
-    const xmlhref = 'xxx';
-    this.navController.navigateForward(['/main/product/product-info/manuals/summary']);
-  }
+
+  toSummary(item) {
+    // this.router.navigate(['/main/product/product-info/manuals/summary'], {queryParams: {menutitle: item.title, hrefxml: item.hrefxml}});
+    this.navController.navigateForward(['/main/product/product-info/manuals/summary'], {queryParams: {menutitle: item.title, hrefxml: item.hrefxml}});
+
+    }
 }

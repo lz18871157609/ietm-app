@@ -7,6 +7,7 @@ import { REQUESTSQL } from '../../services/request.api.service';
 import { MenuController, AlertController, ActionSheetController, PickerController, PopoverController , NavController } from '@ionic/angular';
 import { UserSetingsComponent } from '../user-setings/user-setings.component';
 import { Logger } from 'src/app/common/logger/logger';
+import { MenuService } from '../../services/menu.service';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -39,7 +40,8 @@ export class MainComponent implements OnInit {
     public popoverController: PopoverController,
     public sqliteService: SQLiteService,
     public toastServiceService: ToastServiceService,
-    private navController: NavController
+    private navController: NavController,
+    private menuService: MenuService
   ) { }
 
   ngOnInit() {
@@ -56,11 +58,12 @@ export class MainComponent implements OnInit {
             level: data.res.rows.item(i).menu_code,
             sortNo: data.res.rows.item(i).sort_no,
             parentId: data.res.rows.item(i).parent_menu_id,
-            status: data.res.rows.item(i).status
+            status: data.res.rows.item(i).status,
+            remark: data.res.rows.item(i).remark,
           });
           }
         this.appPages = menuList.filter(item => item.level === '1').sort(this.sortBy('sortNo'));
-        this.logger.log(menuList.filter(item => item.level === '1'));
+        this.logger.log(this.appPages);
         sessionStorage.setItem('menuList', JSON.stringify(menuList));
         if (data.res.rows && data.res.rows.length >= 1) {
           this.navController.navigateRoot(['/main/home']);
@@ -120,6 +123,7 @@ export class MainComponent implements OnInit {
     } else {
       this.menuTitle = event.menuName;
     }
+    this.menuService.sendMenuInfo(event);
   }
 
   /**

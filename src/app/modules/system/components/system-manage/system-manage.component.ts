@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { NavParams } from '@ionic/angular';
+import { MenuService } from '../../../../services/menu.service';
+import { UTILS } from '../../../../../utils/utils';
 @Component({
   selector: 'app-system-manage',
   templateUrl: './system-manage.component.html',
   styleUrls: ['./system-manage.component.scss'],
+  providers: [NavParams]
 })
 export class SystemManageComponent implements OnInit {
   segment = '';
+  menuList: any;
   systemMenuList = [
     {menuName: '手册管理', link: '/main/system/system-manage/manuals-manage', remark: 'manuals-manage'},
     {menuName: '用户管理', link: '/main/system/system-manage/user-manage', remark: 'user-manage'},
@@ -18,17 +23,21 @@ export class SystemManageComponent implements OnInit {
   ];
   constructor(
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private menuService: MenuService
   ) { }
 
   ngOnInit() {
-    if (this.router.url === '/main/system/system-manage') {
-      this.segment = 'manuals-manage';
-      this.router.navigate(['/main/system/system-manage/manuals-manage']);
-    } else {
-      this.segment = this.router.url.split('/').pop();
-      this.router.navigate([this.router.url]);
-    }
+   // this.menuService.getMenuInfo().subscribe(menu => {
+    //  this.menuList = JSON.parse(sessionStorage.getItem('menuList')).filter(item => item.parentId === menu.menuId).sort(UTILS.sortByDesc('sortNo'));
+      if (this.router.url === '/main/system/system-manage') {
+        this.segment = 'manuals-manage';
+        this.router.navigate(['/main/system/system-manage/manuals-manage']);
+      } else {
+        this.segment = this.router.url.split('/').pop();
+        this.router.navigate([this.router.url]);
+      }
+   // })
   }
 
   /**
@@ -36,6 +45,7 @@ export class SystemManageComponent implements OnInit {
    * @param event 
    */
   segmentChanged(event) {
+    console.log(event);
     this.router.navigate(['/main/system/system-manage/' + event.detail.value]);
   }
 }

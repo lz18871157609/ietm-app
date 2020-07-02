@@ -31,6 +31,11 @@ export class AboutComponent implements OnInit {
       {title: 'Unity3d DEMO展示'},
     ]
   },
+  {vNo: '2.2.3', vDate: '2020-07-04', bugFixes: [],
+    features: [
+      {title: '解析PMC技术手册菜单'},
+    ]
+  },
   ]
   constructor() { }
 

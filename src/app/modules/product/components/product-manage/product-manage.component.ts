@@ -92,7 +92,7 @@ return ;
     });
     this.isParent = true;
   } else {
-    this.toastServiceService.showToast('没有手册了！', 'warning', 'top', 2000);
+   // this.toastServiceService.showToast('没有手册了！', 'warning', 'top', 2000);
   }
   }
 

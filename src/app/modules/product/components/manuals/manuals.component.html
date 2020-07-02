@@ -18,13 +18,16 @@
       </ion-header>
       <ion-content>
         <div *ngIf="manualSegment === '1'">
-          <span>目录</span>
+          <ion-header translucent>
+            <ion-toolbar>
+              <ion-buttons class="back-btn" slot="start">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+              </ion-buttons>
+            </ion-toolbar>
+          </ion-header>
           <ion-list>
-            <ion-list-header lines="inset">
-              <ion-label>Trending</ion-label>
-            </ion-list-header>
             <ion-item *ngFor="let item of manualList" (click)="toSummary(item)" >
-              {{item.manualName}}
+              {{item.title}}
             </ion-item>
           </ion-list>
         </div>

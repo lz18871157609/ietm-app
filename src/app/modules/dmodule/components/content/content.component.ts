@@ -23,7 +23,7 @@ export class ContentComponent implements OnInit {
 
   ngOnInit() {}
   ngOnChanges(changes: any): void {
-   // this.container.clear();
+    this.container.clear();
     this.logger.log(changes.dataSource);
     if (changes['dataSource'].currentValue !== undefined) {
       // xml
