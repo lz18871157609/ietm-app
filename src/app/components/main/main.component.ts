@@ -71,7 +71,6 @@ export class MainComponent implements OnInit {
           this.toastServiceService.showToast('暂无权限查看该系统！', 'danger', 'top', 3000);
         }
       }).catch((err) => {
-       // this.logger.error(err);
         // 移动端删除
        this.navController.navigateRoot(['/main/home'], {});
        this.appPages = this.windowPages;
