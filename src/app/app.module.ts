@@ -29,7 +29,7 @@ import { HTTP } from '@ionic-native/http/ngx';
 import { Zip } from '@ionic-native/zip/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
-
+import { Printer, PrintOptions } from '@ionic-native/printer/ngx';
 import { SQLiteService } from './services/sqlite-service.service';
 import {Logger} from './common/logger/logger';
 
@@ -98,6 +98,7 @@ const COMPONENTS = [
     FilePath,
     ImagePicker,
     PhotoViewer,
+    Printer,
     SQLite,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

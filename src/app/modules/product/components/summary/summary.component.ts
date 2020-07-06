@@ -1,13 +1,14 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Logger } from '../../../../common/logger/logger';
 import { HTTP } from '@ionic-native/http/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
 import * as $ from 'jquery';
-import { ModalController, NavController, NavParams } from '@ionic/angular';
+import { ModalController, NavController, NavParams, MenuController, PopoverController, IonicModule} from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
-
+import { FeaturesComponent } from '../modals/features/features.component';
+import { EventService } from '../../../../services/event.service';
 declare var UnityLoader: any;
 @Component({
   selector: 'app-summary',
@@ -20,6 +21,8 @@ export class SummaryComponent implements OnInit {
   gameInstance: any;
   progress: any;
   src: any;
+  profile = false;
+  @ViewChild('summary', {static: true}) summary: any;
   constructor(
     private http: HTTP,
     private logger: Logger,
@@ -29,7 +32,10 @@ export class SummaryComponent implements OnInit {
     private photoViewer: PhotoViewer,
     private activatedRoute: ActivatedRoute,
     private navController: NavController,
-    private navParams: NavParams
+    private navParams: NavParams,
+    private menuController: MenuController,
+    private popoverController: PopoverController,
+    private eventService: EventService
   ) { }
 
   ngOnInit() {
@@ -38,6 +44,11 @@ export class SummaryComponent implements OnInit {
       const xml = xmlparse.parseFromString(response.toString(), 'text/xml');
       this.summarySource = $(xml);
     }); */
+    this.eventService.event.on('profile', (ev) => {
+      if (ev === 'profile') {
+        this.profile = true;
+      }
+    });
     const xmlparse = new DOMParser();
     this.activatedRoute.queryParams.subscribe(params => {
       this.file.readAsText(this.file.externalRootDirectory + 'ietm/pubdata/samples_20170115/', params.hrefxml).then(response => {
@@ -92,12 +103,55 @@ export class SummaryComponent implements OnInit {
     }, 10000);
   }
 
+
+  /**
+   * 注释
+   */
+  onClick(ev) {
+    console.log(ev);
+    const that = this;
+    if (this.profile) {
+      let icon = document.createElement('ion-icon');
+      icon.setAttribute('class', 'product-info-chip-label-icon');
+      icon.setAttribute('name', 'bookmark');
+      icon.onclick = function(event) {that.showPop(event)};
+      // icon.setAttribute('onclick', 'showPop(' + ev + ')');
+      icon.setAttribute('style', 'top: ' + ev.offsetY + 'px; left: ' + ev.offsetX + 'px; position: relative;');
+      this.summary.el.appendChild(icon);
+      console.log(this.summary);
+      this.profile = false;
+      /* console.log(ev);
+      this.profile = false;
+       */
+    }
+  }
+
+  /**
+   * 显示注释pop
+   * @param e
+   */
+  async showPop(e) {
+    const popover = await this.popoverController.create({
+      component: FeaturesComponent,
+      componentProps: {props: e},
+      event: e,
+      cssClass: 'feature-pop',
+      translucent: true
+    });
+    return popover.present();
+  }
+  /**
+   * 标记
+   */
+  swipe(event) {
+    console.log('滑动', event);
+  }
   ngOnChanges(changes: SimpleChanges): void {
     this.logger.log('changes', changes);
     this.logger.log('progress', this.progress);
   }
   ngOnDestroy(): void {
-    this.gameInstance.SetVisible(false);
-    this.gameInstance.LoadDefaultScene();
+   // this.gameInstance.SetVisible(false);
+   // this.gameInstance.LoadDefaultScene();
   }
 }

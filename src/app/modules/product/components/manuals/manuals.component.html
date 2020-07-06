@@ -47,16 +47,56 @@
     </ion-content>
     <ion-footer class="ion-no-border">
       <ion-toolbar>
-        <ion-segment value="all" (click)="openManualMenu()">
-          <ion-segment-button value="all">
+        <ion-segment value="all" (ionChange)="segmentChanged($event)">
+          <ion-segment-button value="summary" (click)="openManualMenu()">
             <ion-label>目录</ion-label>
           </ion-segment-button>
-          <ion-segment-button value="favorites">
-            <ion-label>小功能</ion-label>
+          <ion-segment-button value="fullscreen" (click)="fullScreen($event)">
+            <ion-label>全屏</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="print" (click)="print($event)">
+            <ion-label>打印</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="profile" (click)="profile($event)">
+            <ion-label>注释</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="highlight" (click)="highlight($event)">
+            <ion-label>标记</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="book" (click)="book($event)">
+            <ion-label>书签</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="font" (click)="fontSet()">
+            <ion-label>字体</ion-label>
           </ion-segment-button>
         </ion-segment>
       </ion-toolbar>
     </ion-footer>
+  <!--   <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+      <ion-fab-button color="light">
+        <ion-icon md="caret-back" ios="chevron-back-circle-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-list side="top">
+        <ion-fab-button color="light" (click)="settingBtn($event)">
+          <ion-label>全屏</ion-label>
+        </ion-fab-button>
+        <ion-fab-button color="light">
+          <ion-label>打印</ion-label>
+        </ion-fab-button>
+        <ion-fab-button color="light">
+          <ion-label>注释</ion-label>
+        </ion-fab-button>
+        <ion-fab-button color="light">
+          <ion-label>标记</ion-label>
+        </ion-fab-button>
+        <ion-fab-button color="light">
+          <ion-label>书签</ion-label>
+        </ion-fab-button>
+        <ion-fab-button color="light">
+          <ion-label>字体</ion-label>
+        </ion-fab-button>
+      </ion-fab-list>
+    </ion-fab> -->
   </div>  
 </ion-app>
 

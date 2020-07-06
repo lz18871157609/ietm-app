@@ -132,6 +132,7 @@ export class MainComponent implements OnInit {
     const popover = await this.popoverController.create({
         component: UserSetingsComponent,
         event: ev,
+        cssClass: 'user-set',
         translucent: true
       });
     return  popover.present();

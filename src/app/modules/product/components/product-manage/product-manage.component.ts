@@ -13,6 +13,7 @@ export class ProductManageComponent implements OnInit {
   private selectedItem: any;
   activeManual = {manualTitle : '手册列表', manualMenuCode: 0, manualId: '0', parentId: '0'};
   isParent = false;
+  manualUrl = '';
   private icons = [
     'flask',
     'wifi',
@@ -84,6 +85,7 @@ return ;
     this.activeManual.manualTitle = data.manualName;
     this.activeManual.manualId = data.manualId;
     this.activeManual.parentId = data.parentId;
+    this.manualUrl = this.manualUrl + '/' + data.manualName;
     this.list2 = [];
     this.list3.forEach(item => {
       if (item.parentId === data.manualId) {
@@ -100,6 +102,7 @@ return ;
    * 返回上一层级
    */
   goHistory() {
+    this.manualUrl = this.manualUrl.substr(0, this.manualUrl.lastIndexOf('/'));
     let manualInfo = this.list3.filter(item => item.manualId === this.activeManual.parentId);
     this.list2 = [];
     if (manualInfo.length <= 0) {

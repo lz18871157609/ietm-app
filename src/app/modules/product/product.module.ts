@@ -11,6 +11,7 @@ import { LearnComponent} from './components/learn/learn.component';
 import {PrefaceComponent} from './components/preface/preface.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { importComs } from '../../modules/dmodule/dynamicComponents';
+import { FeaturesComponent } from './components/modals/features/features.component';
 import { ReactiveFormsModule } from '@angular/forms';
 const PRODUCTCOMPONENTS = [
   ProductManageComponent,
@@ -20,7 +21,8 @@ const PRODUCTCOMPONENTS = [
   MaintainTrainComponent,
   LearnComponent,
   PrefaceComponent,
-  SummaryComponent
+  SummaryComponent,
+  FeaturesComponent
 ];
 
 @NgModule({
@@ -39,7 +41,8 @@ const PRODUCTCOMPONENTS = [
     ...PRODUCTCOMPONENTS,
   ],
   entryComponents: [
-    ...importComs
+    ...importComs,
+    FeaturesComponent
   ]
 })
 export class ProductModule { }
