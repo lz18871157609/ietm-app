@@ -9,10 +9,11 @@ import * as $ from 'jquery';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
-
+  tableTitle: any;
   xmlTag = 'tableTemp';
   text = '';
   @Input('dataSource') dataSource;
+  @ViewChild('tablehtml', {static: true}) tablehtml: any;
   @ViewChild('tableTemp', {static: true, read: ViewContainerRef}) tableTemp: ViewContainerRef;
   constructor(
     private resolve: ComponentFactoryResolver,
@@ -27,7 +28,17 @@ export class TableComponent implements OnInit {
     }
   }
   handlerCurrent(current) {
+    this.getTableData(current);
     this.text = current.textContent;
+  }
+
+  getTableData(current) {
+    let that = this;
+    const parse = new DOMParser();
+    const xmls = new XMLSerializer();
+    that.tableTitle = $(current).find('title')[0].textContent;
+    const xmlstr = xmls.serializeToString(current).replace(/row/g, 'tr').replace(/entry/g, 'td').replace(/morecols/g, 'colspan').replace(/moretrs/g, 'rowspan');
+    that.tablehtml.nativeElement.appendChild($(xmlstr)[2]);
   }
   /**
    * select tag

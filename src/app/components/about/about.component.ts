@@ -8,7 +8,7 @@ import {UTILS} from '../../../utils/utils';
 export class AboutComponent implements OnInit {
 
   aboutList = [
-    {vNo: '2.2.0', vDate: '2020-06-20', bugFixes: [],
+    {vNo: '0.1.0', vDate: '2020-06-20', bugFixes: [],
     features: [
       {title: '框架搭建、页面模型设计'},
       {title: 'Sqlite数据库导入、读取'},
@@ -19,23 +19,24 @@ export class AboutComponent implements OnInit {
       {title: '图片拍照、上传、裁剪、识别'},
     ]
   },
-  {vNo: '2.2.1', vDate: '2020-06-22', bugFixes: [],
+  {vNo: '0.1.1', vDate: '2020-06-22', bugFixes: [],
     features: [
       {title: '新增日志模板、用户登录日志写入'},
     ]
   },
-  {vNo: '2.2.2', vDate: '2020-06-30', bugFixes: [],
+  {vNo: '0.1.2', vDate: '2020-06-30', bugFixes: [],
     features: [
       {title: '新增DM组件(A-Z)'},
       {title: '手册XML解析DEMO展示'},
       {title: 'Unity3d DEMO展示'},
     ]
   },
-  {vNo: '2.2.3', vDate: '2020-07-04', bugFixes: [],
+  {vNo: '0.1.3', vDate: '2020-07-04', bugFixes: [],
     features: [
       {title: '解析PMC技术手册菜单'},
       {title: '解析DMC数据展示'},
       {title: '菜单功能优化'},
+      {title: '手册打印功能测试'},
     ]
   },
   ]
