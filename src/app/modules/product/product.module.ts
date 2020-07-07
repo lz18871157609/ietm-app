@@ -12,6 +12,7 @@ import {PrefaceComponent} from './components/preface/preface.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { importComs } from '../../modules/dmodule/dynamicComponents';
 import { FeaturesComponent } from './components/modals/features/features.component';
+import { FontSetComponent } from './components/modals/font-set/font-set.component';
 import { ReactiveFormsModule } from '@angular/forms';
 const PRODUCTCOMPONENTS = [
   ProductManageComponent,
@@ -22,7 +23,8 @@ const PRODUCTCOMPONENTS = [
   LearnComponent,
   PrefaceComponent,
   SummaryComponent,
-  FeaturesComponent
+  FeaturesComponent,
+  FontSetComponent
 ];
 
 @NgModule({
@@ -42,7 +44,8 @@ const PRODUCTCOMPONENTS = [
   ],
   entryComponents: [
     ...importComs,
-    FeaturesComponent
+    FeaturesComponent,
+    FontSetComponent
   ]
 })
 export class ProductModule { }

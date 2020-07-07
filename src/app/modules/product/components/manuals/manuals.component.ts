@@ -6,6 +6,7 @@ import { Printer, PrintOptions } from '@ionic-native/printer/ngx';
 import { PmEntryService } from '../../../../services/pmEntry.service';
 import { HttpClient } from '@angular/common/http';
 import { FeaturesComponent } from '../modals/features/features.component';
+import { FontSetComponent } from '../modals/font-set/font-set.component';
 import * as $ from 'jquery';
 import { EventService } from '../../../../services/event.service';
 
@@ -93,5 +94,14 @@ export class ManualsComponent implements OnInit {
   }
   highlight() { }
   book() { }
-  fontSet() { }
+  async fontSet(ev) {
+    const popover = await this.popoverController.create({
+      component: FontSetComponent,
+      componentProps: {props: ev},
+      event: ev,
+      cssClass: 'font-set',
+      translucent: true
+    });
+    return popover.present();
+  }
 }

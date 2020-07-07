@@ -1,9 +1,10 @@
-import { Component, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, OnInit, SimpleChanges, ViewChild, HostListener, ElementRef } from '@angular/core';
 import { Logger } from '../../../../common/logger/logger';
 import { HTTP } from '@ionic-native/http/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { PhotoViewer } from '@ionic-native/photo-viewer/ngx';
+import { Clipboard } from '@ionic-native/clipboard/ngx';
 import * as $ from 'jquery';
 import { ModalController, NavController, NavParams, MenuController, PopoverController, IonicModule} from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
@@ -35,7 +36,9 @@ export class SummaryComponent implements OnInit {
     private navParams: NavParams,
     private menuController: MenuController,
     private popoverController: PopoverController,
-    private eventService: EventService
+    private eventService: EventService,
+    private clipboard: Clipboard,
+    private element: ElementRef
   ) { }
 
   ngOnInit() {
@@ -108,17 +111,14 @@ export class SummaryComponent implements OnInit {
    * 注释
    */
   onClick(ev) {
-    console.log(ev);
     const that = this;
     if (this.profile) {
       let icon = document.createElement('ion-icon');
       icon.setAttribute('class', 'product-info-chip-label-icon');
       icon.setAttribute('name', 'bookmark');
-      icon.onclick = function(event) {that.showPop(event)};
-      // icon.setAttribute('onclick', 'showPop(' + ev + ')');
+      icon.onclick = function(event) { that.showPop(event); };
       icon.setAttribute('style', 'top: ' + ev.offsetY + 'px; left: ' + ev.offsetX + 'px; position: relative;');
       this.summary.el.appendChild(icon);
-      console.log(this.summary);
       this.profile = false;
       /* console.log(ev);
       this.profile = false;
@@ -144,7 +144,13 @@ export class SummaryComponent implements OnInit {
    * 标记
    */
   swipe(event) {
-    console.log('滑动', event);
+  }
+
+  @HostListener('press', ['$event'])
+  onPress() {
+    let hostElement = this.element.nativeElement;   //宿主元素
+    let copyText = hostElement.innerText;          //宿主元素内的文本
+    console.log(copyText);
   }
   ngOnChanges(changes: SimpleChanges): void {
     this.logger.log('changes', changes);
