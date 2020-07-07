@@ -27,7 +27,7 @@
     "@ionic-native/base64": "^5.25.0",
     "@ionic-native/base64-to-gallery": "^5.25.0",
     "@ionic-native/camera": "^5.25.0",
-    "@ionic-native/clipboard": "^5.25.0",
+    "@ionic-native/clipboard": "^5.27.0",
     "@ionic-native/core": "^5.0.7",
     "@ionic-native/crop": "^5.25.0",
     "@ionic-native/device": "^5.25.0",
